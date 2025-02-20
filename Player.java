@@ -5,6 +5,7 @@
 public class Player implements Character{
     //variables
     public int health;
+    private int maxHealth;
     public int damage;
     
     /**Bace constructor for player class
@@ -12,14 +13,17 @@ public class Player implements Character{
      */
     public Player(){
 	this.health = 100;
+        this.maxHealth = 100;
 	this.damage = 25;
     }
     /**Constructor for player class
      * @param health Player health
+     * @param maxHealth Max regeneratable health
      * @param damage Player Damage
      */
-    public Player(int health, int damage){
+    public Player(int health, int damage, int maxHealth){
 	this.health = health;
+	this.maxHealth = maxHealth;
 	this.damage = damage;
     }
 
@@ -34,8 +38,8 @@ public class Player implements Character{
     }
 
     public int regenerate(int health){
-	if(this.health + health > 100){
-	    this.health = 100;
+	if(this.health + health > maxHealth){
+	    this.health = maxHealth;
 	    return this.health;
 	} else {
 	    this.health = this.health + health;
@@ -48,9 +52,7 @@ public class Player implements Character{
     }
 
     public void setHealth(int health){
-	if(health < 101){
-	    this.health = health;
-	}
+        this.health = health;
     }
 
     public int getDamage(){
