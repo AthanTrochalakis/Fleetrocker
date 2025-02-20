@@ -1,17 +1,15 @@
+/**Interface to base any Character (Enemy/Player)
+ *
+ */
+public interface Character{
 
-public interface Charicter{
-
-    /** Work in progre will update later
-     *
-     */
-    public void setSprite();
-    /**
-     * @param int Amount of damage to deal
+    /**Use to deal an amount of damage to Character
+     * @param damage Amount of damage to deal
      * @return New health amount
      */
     public int dealDamage(int damage);
     /**Add health to charicter without going over max
-     * @param int amount of health to gain if not over maximum
+     * @param health amount of health to gain if not over maximum
      * @return The new health amount
      */
     public int regenerate(int health);
@@ -21,7 +19,7 @@ public interface Charicter{
      */
     public int getHealth();
     /**Use to set a new heath value
-     * @param int New health value
+     * @param health New health value
      */
     public void setHealth(int health);
 
@@ -30,18 +28,18 @@ public interface Charicter{
      */
     public int getDamage();
     /**Use to set the damage a charicter can do
-     * @param int Damage value
+     * @param dmage Damage value
      */
     public void setDamage(int damage);
 
     /** Returns speed value of charicter
      *  @return Speed of charicter
      */
-    public int getSpeed();
+    //public int getSpeed();
     /** Use to set the speed of a charicter
-     *  @param int Speed value
+     *  @param speed Speed value
      */
-    public void setSpeed(int speed);
+    //public void setSpeed(int speed);
 
     
     //This is incompleet and may change depending on how we implement this
