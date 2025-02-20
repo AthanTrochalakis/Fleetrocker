@@ -1,13 +1,5 @@
 
-public Interface Charicter{
-    //Charicter Health
-    public int healthPoints;
-    //Charicter Damage
-    public int damage;
-    //Charicter Speed
-    public int speed;
-
-    //public int hitbox;
+public interface Charicter{
 
     /** Work in progre will update later
      *
@@ -17,12 +9,12 @@ public Interface Charicter{
      * @param int Amount of damage to deal
      * @return New health amount
      */
-    public int dealDamage(int);
+    public int dealDamage(int damage);
     /**Add health to charicter without going over max
      * @param int amount of health to gain if not over maximum
      * @return The new health amount
      */
-    public int regenerate(int);
+    public int regenerate(int health);
     
     /**Gets the amount of health a charicter has
      * @return Amount of health
@@ -31,7 +23,7 @@ public Interface Charicter{
     /**Use to set a new heath value
      * @param int New health value
      */
-    public void setHealth(int);
+    public void setHealth(int health);
 
     /**Returns the damage a charicter can do
      * @return int Damage value
@@ -40,7 +32,7 @@ public Interface Charicter{
     /**Use to set the damage a charicter can do
      * @param int Damage value
      */
-    public void setDamage(int);
+    public void setDamage(int damage);
 
     /** Returns speed value of charicter
      *  @return Speed of charicter
@@ -49,7 +41,7 @@ public Interface Charicter{
     /** Use to set the speed of a charicter
      *  @param int Speed value
      */
-    public void setSpeed(int);
+    public void setSpeed(int speed);
 
     
     //This is incompleet and may change depending on how we implement this
