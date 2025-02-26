@@ -23,6 +23,13 @@ this.add(label);//add label to GUI
 this.setVisible(true);//Set visible
 
 
+//Creates a new player object
+Player One = new Player();
+One.setSprite(/Users/maxwellmurata/Desktop/cs240/LabProject/PlayerSprites);
+One.Static;
+
+
+
 
 //Method to move label left,right,up,down
 
