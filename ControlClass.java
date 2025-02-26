@@ -1,21 +1,43 @@
 import java.util.*;
+public class ControlClass extends JFrame implements KeyListener {
 
-//This class implements the KeyListener interface
+JLabel = label; //creates the label that is moving on the GUI
 
-public class ControlClass implements KeyListener {
+//JFrame GUI components
 
-// TODO Method to move sprite left,right,up,down
-//.set and .get need to be filled in with  obejct name
+MyFrame() {
 
-public void characterMove(KeyEvent e) {
+this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+this.setSize(,);//set the size of the frame
+this.setLayout(null);
+this.addKeyListener(this);
+this.setVisible(true);//sets the frame visible
+
+
+label = new JLabel();
+label.setBounds(x,y,width,height);//Instantiates the label at x and y, with specified width and height
+label.setBackroundColor();//sets backround color
+label.setOpaque(true);//sets opacity
+
+this.add(label);//add label to GUI
+this.setVisible(true);//Set visible
+
+
+
+//Method to move label left,right,up,down
+
+@Override
+public void keyTyped(KeyEvent e) {
+
 switch(e.getKeyChar())
-case 'a': .setLocation(.getX()-10, .getY());
+    
+case 'a': label.setLocation(.getX()-10, label.getY());
 break;
-case 'w': .setLoaction(.getX(), .getY()-10);
+case 'w': label.setLoaction(.getX(), label.getY()-10);
 break;
-case 's': .setLocation(.getX(), .getY()+10);
+case 's': label.setLocation(.getX(), label.getY()+10);
 break;
-case 'd': .setLocation(.getX()+10), .getY()); 
+case 'd': label.setLocation(.getX()+10), label.getY()); 
 break;
 
 }
