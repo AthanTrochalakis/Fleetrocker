@@ -1,6 +1,7 @@
 public class ControlClass extends JFrame implements KeyListener {
     
-    JLabel = label; //creates the label that is moving on the GUI
+    JLabel  label; //creates the label that is moving on the GUI (Character)
+    JLabel  enemyLabel; //creates the label that is moving on the GUI (Enemy)
     public  ArrayList<> level = new ArrayList<> ();
     
     //JFrame GUI components
@@ -22,11 +23,17 @@ public class ControlClass extends JFrame implements KeyListener {
 	this.add(label);//add label to GUI
 	this.setVisible(true);//Set visible
 	
-	
 	//Creates a new player object
 	Player One = new Player();
 	One.setSprite(/Users/maxwellmurata/Desktop/cs240/LabProject/PlayerSprites);
 	label.setIcon(One.Static);
+
+
+	Enemy enemy = new Enemy();
+	enemy.setSprite(/Users/maxwellmurata/Desktop/cs240/LabProject/EnemySprites);
+	enemyLabel.setBounds(10,10,16,16);
+	enemyLabel.setIcon(enemy.Static);
+
 	
 	
     }
@@ -65,6 +72,12 @@ public class ControlClass extends JFrame implements KeyListener {
 	break;
     }
 
+
+
+
+
+
+    
 }
     
 
