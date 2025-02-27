@@ -12,10 +12,12 @@ public class Player implements Character{
     public int damage;
     //Sprite variables
     public Image Static;
-    public Image up;
-    public Image down;
-    public Image left;
-    public Image right;
+
+    //bellow is commented out for future use.
+    //public Image up;
+    //public Image down;
+    //public Image left;
+    //public Image right;
     
     /**Bace constructor for player class
      * Default health = 100, Default damage = 25
@@ -44,18 +46,21 @@ public class Player implements Character{
 	//set static img
 	ImageIcon icon  = new ImageIcon(filePath + "static.png");
 	this.Static = icon.getImage();
+
+	//below is commented out for future use.
+
 	//set up img
-	icon = new ImageIcon(filePath + "up.png");
-	this.up = icon.getImage();
+	//icon = new ImageIcon(filePath + "up.png");
+	//this.up = icon.getImage();
 	//set dowm img
-	icon = new ImageIcon(filePath + "down.png");
-	this.down = icon.getImage();
+	//icon = new ImageIcon(filePath + "down.png");
+	//this.down = icon.getImage();
 	//set left img
-	icon = new ImageIcon(filePath + "left.png");
-	this.left = icon.getImage();
+	//icon = new ImageIcon(filePath + "left.png");
+	//this.left = icon.getImage();
 	//set right img
-	icon = new ImageIcon(filePath + "right.png");
-	this.right = icon.getImage();
+	//icon = new ImageIcon(filePath + "right.png");
+	//this.right = icon.getImage();
     }
 
 
