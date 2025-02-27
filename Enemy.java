@@ -2,7 +2,7 @@ import javax.swing.ImageIcon;
 import java.awt.Image;
 
 /**Class to interact and create new enemies.
- *
+ * 
  */
 public class Enemy implements Character{
     //variables
@@ -10,7 +10,7 @@ public class Enemy implements Character{
     public int damage;
     public int maxHealth;
     //Sprite variables
-    public Image Static;
+    public ImageIcon Static;
 
     //below is commented out for future use.
     //public Image up;
@@ -46,21 +46,21 @@ public class Enemy implements Character{
     public void setSprites(String filePath){
 	//set static img
 	ImageIcon icon  = new ImageIcon(filePath + "static.png");
-	this.Static = icon.getImage();
+	this.Static = icon;
 
 	//below is commented out for future use.
 	//set up img
 	//icon = new ImageIcon(filePath + "up.png");
-	//this.up = icon.getImage();
+	//this.up = icon;
 	//set dowm img
 	//icon = new ImageIcon(filePath + "down.png");
-	//this.down = icon.getImage();
+	//this.down = icon;
 	//set left img
 	//icon = new ImageIcon(filePath + "left.png");
-	//this.left = icon.getImage();
+	//this.left = icon;
 	//set right img
 	//icon = new ImageIcon(filePath + "right.png");
-	//this.right = icon.getImage();
+	//this.right = icon;
     }
 
     

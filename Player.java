@@ -10,8 +10,10 @@ public class Player implements Character{
     public int health;
     private int maxHealth;
     public int damage;
+    public int x;
+    public int y;
     //Sprite variables
-    public Image Static;
+    public ImageIcon Static;
 
     //bellow is commented out for future use.
     //public Image up;
@@ -45,22 +47,22 @@ public class Player implements Character{
     public void setSprites(String filePath){
 	//set static img
 	ImageIcon icon  = new ImageIcon(filePath + "static.png");
-	this.Static = icon.getImage();
+	this.Static = icon;
 
 	//below is commented out for future use.
 
 	//set up img
 	//icon = new ImageIcon(filePath + "up.png");
-	//this.up = icon.getImage();
+	//this.up = icon;
 	//set dowm img
 	//icon = new ImageIcon(filePath + "down.png");
-	//this.down = icon.getImage();
+	//this.down = icon;
 	//set left img
 	//icon = new ImageIcon(filePath + "left.png");
-	//this.left = icon.getImage();
+	//this.left = icon;
 	//set right img
 	//icon = new ImageIcon(filePath + "right.png");
-	//this.right = icon.getImage();
+	//this.right = icon;
     }
 
 
@@ -100,6 +102,18 @@ public class Player implements Character{
     public void setDamage(int damage){
 	this.damage = damage;
     }
-
+    
+    public int getX(){
+	return this.x;
+    }
+    public int getY(){
+	return this.y;
+    }
+    public void setX(int x){
+	this.x = x;
+    }
+    public void setY(int y){
+	this.y = y;
+    }
     
 }
