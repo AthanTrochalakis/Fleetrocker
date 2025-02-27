@@ -2,11 +2,11 @@ public class ControlClass extends JFrame implements KeyListener {
     
     JLabel  label; //creates the label that is moving on the GUI (Character)
     JLabel  enemyLabel; //creates the label that is moving on the GUI (Enemy)
-    public  ArrayList<> level = new ArrayList<> ();
+    public  ArrayList<JLabel> level = new ArrayList<>();
     
     //JFrame GUI components
     
-    MyFrame() {
+    public ControlClass() {
 	
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(,);//set the size of the frame
@@ -64,7 +64,7 @@ public class ControlClass extends JFrame implements KeyListener {
 	    
 	case 'a': label.setLocation(label.getX()-10, label.getY());
 		break;
-	case 'w': label.setLoaction(label.getX(), label.getY()-10);
+	case 'w': label.setLocation(label.getX(), label.getY()-10);
 	    break;
 	case 's': label.setLocation(label.getX(), label.getY()+10);
 	    break;
