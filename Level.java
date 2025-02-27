@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.awt.*;
 
 /**
  * A class for handling levels in Fleetrocker
@@ -10,13 +11,13 @@ import java.io.FileNotFoundException;
  * @version 2/20/2025
  */
 public class Level{
-    int levelNum;
-    ArrayList<LevelObject> levelObjects;
+    private int levelNum;
+    private ArrayList<LevelObject> levelObjects;
     //ArrayList<Enemy> enemies;
     //ArrayList<Equipment> equipment;
 
-    public Level(String levelFileName){
-	this.levelNum = 1;
+    public Level(String levelFileName, int currentLevel){
+	this.levelNum = currentLevel;
 	this.levelObjects = new ArrayList<LevelObject>();
 	try{
 	    File levelData = new File(levelFileName);
@@ -24,22 +25,28 @@ public class Level{
 	    int currentY = 0;
 	    while(levelReader.hasNextLine()){
 		String currentLine = levelReader.nextLine();
-		boolean teleporterAdded = false;
+		//Read in level data file, using characters within it to initialize level objects
 		for(int i = 0; i < currentLine.length(); i++){ //i can act as X position
 		    LevelObject newObject = null;
-		    if(currentLine.charAt(i) == 'T'){
-			if(!teleporterAdded){
-			    newObject = new Teleporter(i, currentY, true);
-			} else{
-			    newObject = new Teleporter(i, currentY, false);
-			}
-			teleporterAdded = !teleporterAdded;
-		    } else if(currentLine.charAt(i) == '#'){
-			newObject = new Wall(i, currentY);
-		    } else if(currentLine.charAt(i) == 'D'){
-			newObject = new Door(i, currentY);
-		    } else{
-			newObject = new EmptySpace(i, currentY, currentLine.charAt(i));
+		    if(currentLine.charAt(i) == 'E'){ //E for Entrance teleporter
+			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/teleporter.png");
+			newObject = new Teleporter(i, currentY, newImage, true);
+		    } else if(currentLine.charAt(i) == 'L'){ //L for Leaving teleporter
+			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/teleporter.png");
+			newObject = new Teleporter(i, currentY, newImage, false);
+		    } else if(currentLine.charAt(i) == '#'){ //# for Wall
+			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/wall.png");
+			newObject = new Wall(i, currentY, newImage);
+		    } else if(currentLine.charAt(i) == 'D'){ //D for Door
+			Image newClosedImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/closedDoor.png");
+			Image newOpenImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/openDoor.png");
+			newObject = new Door(i, currentY, newClosedImage, newOpenImage);
+		    } else if(currentLine.charAt(i) == '.'){ //. for floor
+			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/floor.png");
+			newObject = new EmptySpace(i, currentY, newImage);
+		    } else{ //else is completely empty space, transparent sprite
+			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/empty.png");
+			newObject = new EmptySpace(i, currentY, newImage);
 		    }
 		    if(newObject != null){
 			levelObjects.add(newObject);
@@ -52,22 +59,19 @@ public class Level{
 	}
     }
 
-    public String getLayout(int playerX, int playerY){
-	String colorCancel = "\u001B[0m";
-	String levelLayout = "";
-	for(int i = 0; i < this.levelObjects.size(); i++){
-	    if(levelObjects.get(i).getXPos() == playerX && levelObjects.get(i).getYPos() == playerY){
-		levelLayout += "\u001B[32m" + "@" + colorCancel;
-	    } else{
-		levelLayout += levelObjects.get(i).getColor() +
-		    levelObjects.get(i).toString() + colorCancel;
-	    }
-	    if(i < this.levelObjects.size() - 1){
-		if(levelObjects.get(i + 1).getYPos() > levelObjects.get(i).getYPos()){
-		    levelLayout += "\n";
-		}
-	    }
-	}
-	return levelLayout;
+    public int getLevelNum(){
+	return this.levelNum;
+    }
+
+    public void incrementLevelNum(){
+	this.levelNum++;
+    }
+
+    /**
+     * Get the full list of level objects for use in
+     * graphics rendering and gameplay logic.
+     */
+    public ArrayList<LevelObject> getLayout(){
+	return this.levelObjects;
     }
 }

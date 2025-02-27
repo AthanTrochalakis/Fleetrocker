@@ -1,20 +1,22 @@
+import java.awt.*;
+
 /**
  * A superclass for handling static objects in levels in Fleetrocker.
  *
  * @author Athan Trochalakis
- * @version 2/20/2025
+ * @version 2/26/2025
  */
 public class LevelObject{
-    protected int xPos;
-    protected int yPos;
-    protected char objectChar;
-    protected String color;
+    public int xPos;
+    public int yPos;
+    public int size;
+    public Image objectImage;
 
-    public LevelObject(int newX, int newY, char newChar, String newColor){
+    public LevelObject(int newX, int newY, Image newImage){
 	this.xPos = newX;
 	this.yPos = newY;
-	this.objectChar = newChar;
-	this.color = newColor;
+	this.size = 32;
+	this.objectImage = newImage;
     }
 
     public int getXPos(){
@@ -25,11 +27,11 @@ public class LevelObject{
 	return this.yPos;
     }
 
-    public String getColor(){
-	return this.color; //ansi escape code
+    public int getSize(){
+	return this.size;
     }
 
-    public String toString(){
-	return "" + this.objectChar; //ascii character, maybe eventually sprite
+    public Image getImage(){
+	return this.objectImage;
     }
 }
