@@ -1,4 +1,4 @@
-import java.awt.*;
+import javax.swing.ImageIcon;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Wall extends LevelObject{
     protected boolean canCollide;
     
-    public Wall(int newX, int newY, Image wallImage){
+    public Wall(int newX, int newY, ImageIcon wallImage){
 	super(newX, newY, wallImage);
 	this.canCollide = true;
     }

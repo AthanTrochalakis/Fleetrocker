@@ -26,5 +26,7 @@ public class Fleetrocker{
 
 	ControlClass newControl = new ControlClass();
 	newControl.level(newLevel.getLayout());
+
+	newControl.myFrame();
     }
 }

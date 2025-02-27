@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.awt.*;
+import javax.swing.ImageIcon;
 
 /**
  * A class for handling levels in Fleetrocker
  *
  * @author Athan Trochalakis
- * @version 2/20/2025
+ * @version 2/27/2025
  */
 public class Level{
     private int levelNum;
@@ -29,29 +29,36 @@ public class Level{
 		for(int i = 0; i < currentLine.length(); i++){ //i can act as X position
 		    LevelObject newObject = null;
 		    if(currentLine.charAt(i) == 'E'){ //E for Entrance teleporter
-			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/teleporter.png");
+			ImageIcon newImage = new ImageIcon("../levelSprites/teleporter.png");
 			newObject = new Teleporter(i, currentY, newImage, true);
+			System.out.print("E");
 		    } else if(currentLine.charAt(i) == 'L'){ //L for Leaving teleporter
-			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/teleporter.png");
+			ImageIcon newImage = new ImageIcon("../levelSprites/teleporter.png");
 			newObject = new Teleporter(i, currentY, newImage, false);
+			System.out.print("L");
 		    } else if(currentLine.charAt(i) == '#'){ //# for Wall
-			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/wall.png");
+			ImageIcon newImage = new ImageIcon("../levelSprites/wall.png");
 			newObject = new Wall(i, currentY, newImage);
+			System.out.print("#");
 		    } else if(currentLine.charAt(i) == 'D'){ //D for Door
-			Image newClosedImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/closedDoor.png");
-			Image newOpenImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/openDoor.png");
+		        ImageIcon newClosedImage = new ImageIcon("../levelSprites/closedDoor.png");
+			ImageIcon newOpenImage = new ImageIcon("../levelSprites/openDoor.png");
 			newObject = new Door(i, currentY, newClosedImage, newOpenImage);
+			System.out.print("D");
 		    } else if(currentLine.charAt(i) == '.'){ //. for floor
-			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/floor.png");
+		        ImageIcon newImage = new ImageIcon("../levelSprites/floor.png");
 			newObject = new EmptySpace(i, currentY, newImage);
+			System.out.print(".");
 		    } else{ //else is completely empty space, transparent sprite
-			Image newImage = Toolkit.getDefaultToolkit().getImage("../levelSprites/empty.png");
+		        ImageIcon newImage = new ImageIcon("../levelSprites/empty.png");
 			newObject = new EmptySpace(i, currentY, newImage);
+			System.out.print(" ");
 		    }
 		    if(newObject != null){
 			levelObjects.add(newObject);
 		    }
 		}
+		System.out.println("");
 		currentY++;
 	    }
 	} catch (FileNotFoundException e){

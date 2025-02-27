@@ -1,4 +1,4 @@
-import java.awt.*;
+import javax.swing.ImageIcon;
 
 /**
  * A subclass of LevelObject which represents teleporters.
@@ -9,7 +9,7 @@ import java.awt.*;
 public class Teleporter extends Wall{
     protected boolean isEntry; //do you arrive at or leave a ship here?
 
-    public Teleporter(int newX, int newY, Image newImage, boolean newEntry){
+    public Teleporter(int newX, int newY, ImageIcon newImage, boolean newEntry){
 	super(newX, newY, newImage);
 	this.isEntry = newEntry;
     }

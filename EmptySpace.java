@@ -1,4 +1,4 @@
-import java.awt.*;
+import javax.swing.ImageIcon;
 
 /**
  * A subclass for representing empty space in levels.
@@ -9,7 +9,7 @@ import java.awt.*;
  */
 public class EmptySpace extends LevelObject{
 
-    public EmptySpace(int newX, int newY, Image newImage){
+    public EmptySpace(int newX, int newY, ImageIcon newImage){
 	super(newX, newY, newImage);
     }
 }

@@ -1,4 +1,4 @@
-import java.awt.*;
+import javax.swing.ImageIcon;
 
 /**
  * A superclass for handling static objects in levels in Fleetrocker.
@@ -10,9 +10,9 @@ public class LevelObject{
     public int xPos;
     public int yPos;
     public int size;
-    public Image objectImage;
+    public ImageIcon objectImage;
 
-    public LevelObject(int newX, int newY, Image newImage){
+    public LevelObject(int newX, int newY, ImageIcon newImage){
 	this.xPos = newX;
 	this.yPos = newY;
 	this.size = 32;
@@ -31,7 +31,7 @@ public class LevelObject{
 	return this.size;
     }
 
-    public Image getImage(){
+    public ImageIcon getImage(){
 	return this.objectImage;
     }
 }
